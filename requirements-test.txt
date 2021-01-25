@@ -26,3 +26,5 @@ moto==1.3.16
 pytest-cov>=2.11.1
 mlflow==1.13.1
 puremagic ==1.10
+xlrd==2.0.1
+openpyxl==3.0.6
