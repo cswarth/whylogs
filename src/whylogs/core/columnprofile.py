@@ -152,10 +152,8 @@ class ColumnProfile:
         schema = None
         if self.schema_tracker is not None:
             schema = self.schema_tracker.to_summary()
-        # TODO: implement the real schema/type checking
-        null_count = self.schema_tracker.get_count(InferredType.Type.NULL)
         opts = dict(
-            counters=self.counters.to_protobuf(null_count=null_count),
+            counters=self.counters.to_protobuf(),
             frequent_items=self.frequent_items.to_summary(),
             unique_count=self._unique_count_summary(),
         )

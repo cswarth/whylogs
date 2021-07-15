@@ -55,17 +55,13 @@ class CountersTracker:
             true_count=self.true_count + other.true_count,
         )
 
-    def to_protobuf(self, null_count=0):
+    def to_protobuf(self):
         """
         Return the object serialized as a protobuf message
         """
         opts = dict(count=self.count)
         if self.true_count > 0:
             opts["true_count"] = Int64Value(value=self.true_count)
-
-        # TODO: remove this logic once we deprecate null_count form the protobuf schema
-        if null_count > 0:
-            opts["null_count"] = Int64Value(value=null_count)
         return Counters(**opts)
 
     @staticmethod
